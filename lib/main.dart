@@ -1,3 +1,5 @@
+import 'package:demo_app/detailedSuperHeroInfo.dart';
+import 'package:demo_app/layouts.dart';
 import 'package:flutter/material.dart';
 import 'package:super_hero/super_hero.dart';
 
@@ -31,7 +33,7 @@ class _SuperHeroName extends State<SuperHeroNameGenerator> {
       appBar: AppBar(
         title: Text('Welcome to my SuperHero Picker'),
       ),
-      body: _buildBody(),
+      body: mainWidget(),   //_buildBody(),
     );
   }
 
@@ -89,28 +91,7 @@ class _SuperHeroName extends State<SuperHeroNameGenerator> {
   void _pushExample(String superHeroName) {
     Navigator.of(context).push(
       MaterialPageRoute<void>(builder: (BuildContext context) {
-        final _superHeroName = superHeroName;
-        return Scaffold(
-          appBar: AppBar(
-            title: Text(_superHeroName),
-          ),
-          body: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Image.network('https://picsum.photos/200/300'),
-                      Image.network('https://picsum.photos/200/300')
-                    ]),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Image.network('https://picsum.photos/200/300'),
-                      Image.network('https://picsum.photos/200/300')
-                    ]),
-              ]),
-        );
+        return superHeroDetails(superHeroName);
       }),
     );
   }
